@@ -43,22 +43,6 @@ def subscription_styles_get(plan, ver):
         except KeyError:
             styles = {'etag' : 0, 'last_modified' : 0, 'data' : ''}
 
-    if styles['etag'] and styles['data']:
-        iv = utils.unsafe_md5(styles['etag'].encode()).digest()
-        key = hashlib.sha256(settings.local.sub_url_key.encode()).digest()
-        cipher = Cipher(
-            algorithms.AES(key),
-            modes.CBC(iv),
-            backend=default_backend()
-        ).decryptor()
-        dec_data = (cipher.update(base64.b64decode(styles['data'])) +
-                    cipher.finalize()).rstrip(b'\x00')
-        return utils.styles_response(
-            styles['etag'],
-            styles['last_modified'],
-            dec_data,
-        )
-
     return utils.styles_response(
         styles['etag'],
         styles['last_modified'],
