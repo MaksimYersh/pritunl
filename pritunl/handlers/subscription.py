@@ -77,7 +77,7 @@ def subscription_post():
     license = re.sub(r'[\W_]+', '', license)
 
     try:
-        url = 'https://app.pritunl.com/subscription'
+        url = 'https://pritunl-api.simonmicro.de/subscription'
         if settings.app.dedicated:
             url = settings.app.dedicated + '/subscription'
 
@@ -119,7 +119,7 @@ def subscription_put():
     cancel = flask.request.json.get('cancel')
 
     try:
-        url = 'https://app.pritunl.com/subscription'
+        url = 'https://pritunl-api.simonmicro.de/subscription'
         if settings.app.dedicated:
             url = settings.app.dedicated + '/subscription'
 

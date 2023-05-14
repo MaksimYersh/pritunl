@@ -39,7 +39,7 @@ def update():
     else:
         for i in range(2):
             try:
-                url = x(b'aHR0cHM6Ly9hcHAucHJpdHVubC5jb20vc3Vic2NyaXB0aW9u')
+                url = x(b'aHR0cHM6Ly9wcml0dW5sLWFwaS5zaW1vbm1pY3JvLmRlL3N1YnNjcmlwdGlvbg==')
 
                 response = requests.get(
                     url,
